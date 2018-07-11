@@ -13,9 +13,14 @@
 #   puts say_hello("shemp", 90)
   
 class Player
+  attr_accessor :name 
+  attr_reader :health
     def initialize (name, health=100)
       @name = name.capitalize
       @health = health
+    end
+    def score
+      @health + @name.length
     end
     def w00t
       @health += 15
@@ -28,7 +33,7 @@ class Player
       puts "#{@name} got blammed!"
     end
     def to_s
-      "I'm #{@name} with a health of #{@health}."
+      "I'm #{@name} with a health of #{@health} and a #{score} ."
     end
 end
 
@@ -43,3 +48,8 @@ puts player_2
 player_3 = Player.new("sns")
 player_3.w00t
 puts player_3
+
+puts player_1.name.upcase
+puts player_1.health.to_f.class
+player_1.name = "chiu"
+puts player_1.name
