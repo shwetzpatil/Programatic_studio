@@ -13,11 +13,12 @@
 #   puts say_hello("shemp", 90)
   
 class Player
-  attr_accessor :name 
+  attr_accessor :name2 
   attr_reader :health
     def initialize (name, health=100)
       @name = name.capitalize
       @health = health
+      @name2 = "hello name 2"
     end
     def score
       @health + @name.length
@@ -49,7 +50,11 @@ player_3 = Player.new("sns")
 player_3.w00t
 puts player_3
 
-puts player_1.name.upcase
+# puts player_1.name.upcase
 puts player_1.health.to_f.class
-player_1.name = "chiu"
-puts player_1.name
+# player_1.name = "chiu"
+# puts player_1.name
+puts "Name : " , player_1.name2
+
+player_1.name2 = "name2cheke"
+puts "name: #{player_1.name2}"
