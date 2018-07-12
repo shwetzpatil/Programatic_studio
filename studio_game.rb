@@ -30,10 +30,11 @@ class Player
 
     def blam
       @health -= 10
+      puts self
       puts "#{@name} got blammed!"
     end
     def to_s
-      "I'm #{@name} with a health of #{@health} and a #{score} ."
+      "I'm #{@name} with a health of #{@health} and a score #{score} ."
     end
 end
 
@@ -70,3 +71,55 @@ end
 players.each do |player|
   puts player.health
 end
+
+
+class Game
+attr_reader :title
+
+  def initialize(title)
+    @title = title.upcase
+    @players = []
+  end
+
+  def add_player(new_player)
+    @players << new_player
+  end
+
+  def play
+    puts "There are #{@players.length} players in #{@title}"
+    @players.each do |player|
+      puts player
+    end
+
+    @players.each do |player|
+      player.blam
+      player.w00t
+      puts player
+    end
+  end
+end
+
+player_1 = Player.new("moe")
+player_2 = Player.new("larry", 60)
+player_3 = Player.new("curly", 125)
+    
+
+knuckleheads = Game.new("Knuckleheads")
+knuckleheads.add_player(player_1)
+knuckleheads.add_player(player_2)
+knuckleheads.add_player(player_3)
+knuckleheads.play
+
+puts knuckleheads.title
+
+chipmunks = Game.new("Chipmunks")
+player_1 = Player.new("Aaa",0)
+player_2 = Player.new("Bbb", 60)
+player_3 = Player.new("Ccc", 125)
+
+puts "Showing players"
+puts players = player_1,player_2,player_3
+
+puts chipmunks.add_player(players)
+chipmunks.play
+puts chipmunks.title
